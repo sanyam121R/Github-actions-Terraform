@@ -1,30 +1,30 @@
-# name: Terraform Destroy
+name: Terraform Destroy
 
-# on:
-#   push:
-#     branch:
-#       - master
+on:
+  push:
+    branch:
+      - master
 
-# jobs:
-#   terraform-init:
-#     name: Terraform Validation and Build
-#     runs-on: ubuntu-latest
+jobs:
+  terraform-init:
+    name: Terraform Validation and Build
+    runs-on: ubuntu-latest
     
-#     steps:
-#     - uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
 
-#     - name: Configure AWS credentials
-#       uses: aws-actions/configure-aws-credentials@v1
-#       with:
-#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-#         aws-region: "us-east-1"
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+        aws-region: "us-east-1"
 
-#     - name: Terraform hashicorp setup
-#       uses: hashicorp/setup-terraform@v2.0.2
+    - name: Terraform hashicorp setup
+      uses: hashicorp/setup-terraform@v2.0.2
     
-#     - name: Terraform destroy
-#       run: |
-#         echo "** Running Terraform destroy **"
-#         terraform 
+    - name: Terraform destroy
+      run: |
+        echo "** Running Terraform destroy **"
+        terraform 
