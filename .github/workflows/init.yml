@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  aws_region: us-east-1
+  aws_region: us-east-2
   BUCKET: san-s3bucket
   TFSTATE_FILE: sanTerraform.tfstate
 
