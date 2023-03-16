@@ -10,7 +10,6 @@ env:
   BUCKET: san-s3bucket
   TFSTATE_FILE: sanTerraform.tfstate
 
-
 jobs:
   terraform-init:
     name: Terraform Validation and Build
@@ -39,4 +38,4 @@ jobs:
     - name: Terraform destroy
       run: |
         echo "** Running Terraform destroy **"
-        terraform 
+        terraform destroy
