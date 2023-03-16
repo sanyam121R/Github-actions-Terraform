@@ -5,6 +5,11 @@ on:
     branch:
       - master
 
+env:
+  aws_region: us-east-1
+  BUCKET: san-s3bucket
+  TFSTATE_FILE: sanTerraform.tfstate
+
 jobs:
   terraform-init:
     name: Terraform Validation and Build
@@ -28,7 +33,7 @@ jobs:
       run: |
         echo 'pwd'
         echo "** Running Terraform init **"
-        terraform init
+        terraform init -reconfigure -backend-config="bucket=${{ env.BUCKET}}" -backend-config="key=${{ env.TFSTATE_FILE }}" -backend-config="region=${{ env.aws_region }}"
 
         echo "** Running Terraform Validate **"
         terraform validate
